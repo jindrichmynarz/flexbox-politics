@@ -1,0 +1,7 @@
+{:nrepl {:port 8777}
+ :deps {:aliases [:dev]}
+ :dev-http {8280 "resources/public"}
+ :builds {:client {:target :browser
+                   :output-dir "resources/public/js"
+                   :modules {:client {:init-fn net.mynarz.flexbox-politics.core/main}}
+                   :release {:compiler-options {:optimizations :advanced}}}}}

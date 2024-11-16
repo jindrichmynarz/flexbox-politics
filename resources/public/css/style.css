@@ -1,0 +1,252 @@
+body {
+  font-family: "PT Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  min-width: 600px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+html, body {
+  min-height: 100%;
+}
+
+#app {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+#css-editor {
+  width: 50%;
+  min-width: 300px;
+  padding: 2em;
+  font-size: 15px;
+  background: #11457e;
+  background: linear-gradient(0deg, rgba(51,51,51,1) 0%, rgba(17,69,126,1) 100%);
+}
+
+#css-editor h1 {
+  margin: 0.5rem 0;
+  text-transform: uppercase;
+  font-size: 28px;
+}
+
+#editor {
+  font-family: "Source Code Pro", monospace;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #777;
+  position: relative;
+  padding: 15px 15px;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+}
+
+#editor pre {
+  margin: 0;
+}
+
+#code {
+  display: block;
+  width: calc(100% - 36px);
+  margin-left: 16px;
+  padding: .5rem;
+  font-size: 16px;
+  outline: none;
+  resize: none;
+  border: none;
+  field-sizing: content;
+}
+
+#view {
+  position: sticky;
+  top: 0;
+  width: 50vw;
+  height: 100vh;
+  min-width: 300px;
+  min-height: 300px;
+  max-width: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+  background-color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#political-compass {
+  position: relative;
+  width: 40vw;
+  height: 40vw;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#target {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  border: dashed 5px rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  width: 4vw;
+  height: 4vw;
+  animation: spin 20s linear infinite;
+}
+
+#quadrants {
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5vw;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+#quadrants .quadrant {
+  height: 100%;
+  width: 100%;
+  border: solid 1px #333;
+  background-size: 2vw 2vw;
+  background-image:
+    linear-gradient(to right, #aaa 1px, transparent 1px),
+    linear-gradient(to bottom, #aaa 1px, transparent 1px);
+}
+
+#tl.quadrant {
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
+#tr.quadrant {
+  background-color: rgba(0, 0, 255, 0.2);
+}
+
+#bl.quadrant {
+  background-color: rgba(0, 255, 0, 0.2);
+}
+
+#br.quadrant {
+  background-color: rgba(255, 255, 0, 0.2);
+}
+
+#labels div {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.5em;
+  padding: .25rem .5rem;
+  background-color: #333;
+  border-radius: .5rem;
+}
+
+#labels div:nth-child(1) {
+  left: 50%;
+  translate: -50% -50%;
+}
+
+#labels div:nth-child(2) {
+  top: 50%;
+  right: 0;
+  translate: 50% -50%;
+}
+
+#labels div:nth-child(3) {
+  left: 50%;
+  bottom: 0;
+  translate: -50% 50%;
+}
+
+#labels div:nth-child(4) {
+  top: 50%;
+  left: 0;
+  translate: -50% -50%;
+}
+
+#parties {
+  position: absolute;
+  padding: 0 2.5vw;
+  top: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 4vw;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#parties img {
+  width: 4vw;
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, .5));
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+  }
+
+  70% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.95);
+  }
+}
+
+#pirati {
+  transition: all 2s;
+  animation: pulse 2s infinite;
+}
+
+#confetti {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+}
+
+@keyframes appear {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+}
+
+#victory {
+  position: absolute;
+  font-size: 4em;
+  color: #fff;
+  z-index: 20;
+  text-align: center;
+  text-shadow: #000 0 0 10px;
+  animation: appear 2s ease-in forwards;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #fff;
+}
+
+footer {
+  text-align: center;
+  font-size: small;
+  padding-bottom: 1em;
+}
